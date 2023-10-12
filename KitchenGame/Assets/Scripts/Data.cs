@@ -13,6 +13,7 @@ public static class Data
         { Ingredients.CHOC_CHIP, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(-1, -1), new Vector2Int( 0, -1) } },
         { Ingredients.BERRY, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(0, -1), new Vector2Int(1, 0), new Vector2Int(0, 1) } },
         { Ingredients.SUGAR, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(1, 0) } },
+        { Ingredients.BACON, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(0, 0), new Vector2Int(1, 0) } },
     };
 
     // private static readonly Vector2Int[,] WallKicksI = new Vector2Int[,] {

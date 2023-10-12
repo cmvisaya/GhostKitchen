@@ -18,10 +18,8 @@ public class Piece : MonoBehaviour
         this.data = data;
         this.rotationIndex = 0;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        if (this.cells == null) {
-            this.cells = new Vector3Int[data.cells.Length];
-        }
+        
+        this.cells = new Vector3Int[data.cells.Length];
 
         for(int i = 0; i < data.cells.Length; i++) {
             this.cells[i] = (Vector3Int)data.cells[i];

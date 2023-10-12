@@ -7,6 +7,7 @@ public enum Ingredients
     CHOC_CHIP,
     SUGAR,
     BERRY,
+    BACON,
 }
 
 public enum Flavors

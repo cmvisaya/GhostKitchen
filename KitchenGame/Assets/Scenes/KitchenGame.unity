@@ -973,6 +973,7 @@ MonoBehaviour:
   - {fileID: 1158059759862035687, guid: a7df04ce1cd3db343aa5696d43140476, type: 3}
   - {fileID: 3717573195122090938, guid: 01d6ff7d88501954982e51b4c282ea2d, type: 3}
   - {fileID: 2172511007223180596, guid: f68c4e5f8f995db43890d9805eb112fd, type: 3}
+  - {fileID: 6769268961481062478, guid: b051b2c6a5903274bafb0b13134eca77, type: 3}
   currentCard: {fileID: 0}
   nameText: {fileID: 1050059021}
   zCooling: 0
@@ -1222,12 +1223,15 @@ MonoBehaviour:
   - ingredient: 1
     flavor: 0
     tile: {fileID: 11400000, guid: 5d1946f41a994aa47960a2a5044342a6, type: 2}
-  - ingredient: 3
-    flavor: 0
-    tile: {fileID: 11400000, guid: 5d1946f41a994aa47960a2a5044342a6, type: 2}
   - ingredient: 2
     flavor: 0
     tile: {fileID: 11400000, guid: 5d1946f41a994aa47960a2a5044342a6, type: 2}
+  - ingredient: 3
+    flavor: 0
+    tile: {fileID: 11400000, guid: 5d1946f41a994aa47960a2a5044342a6, type: 2}
+  - ingredient: 4
+    flavor: 1
+    tile: {fileID: 11400000, guid: ffa987590f93c744dad0487a1f8e26b1, type: 2}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1170754172
 MonoBehaviour:
