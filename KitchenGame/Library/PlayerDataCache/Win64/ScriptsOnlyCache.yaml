@@ -9,7 +9,6 @@ ScriptsOnlyBuild:
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
-    - UnityEngine.U2D.Animation.BufferManager
     - UnityEngine.U2D.Animation.SpriteSkinComposite
     - UnityEngine.U2D.Animation.SpriteSkinUpdateHelper
     Unity.2D.IK.Editor.dll:
@@ -19,7 +18,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -120,19 +118,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3774}
     - Class: 114
-      Script: {instanceID: 4406}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5038}
     - Class: 114
-      Script: {instanceID: 5954}
+      Script: {instanceID: 5956}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 6870}
+      Script: {instanceID: 6872}
     - Class: 114
-      Script: {instanceID: 7270}
+      Script: {instanceID: 7272}
     - Class: 114
-      Script: {instanceID: 9506}
+      Script: {instanceID: 9508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -185,19 +183,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3774}
     - Class: 114
-      Script: {instanceID: 4406}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5038}
     - Class: 114
-      Script: {instanceID: 5954}
+      Script: {instanceID: 5956}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 6870}
+      Script: {instanceID: 6872}
     - Class: 114
-      Script: {instanceID: 7270}
+      Script: {instanceID: 7272}
     - Class: 114
-      Script: {instanceID: 9506}
+      Script: {instanceID: 9508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -246,19 +244,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 4726}
+      Script: {instanceID: 4060}
     - Class: 114
-      Script: {instanceID: 5046}
+      Script: {instanceID: 4728}
     - Class: 114
-      Script: {instanceID: 5954}
+      Script: {instanceID: 5048}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 5956}
     - Class: 114
-      Script: {instanceID: 6870}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 7270}
+      Script: {instanceID: 6872}
     - Class: 114
-      Script: {instanceID: 26376}
+      Script: {instanceID: 7272}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -305,19 +303,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3774}
     - Class: 114
-      Script: {instanceID: 4406}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 5036}
+      Script: {instanceID: 5038}
     - Class: 114
-      Script: {instanceID: 5954}
+      Script: {instanceID: 5956}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 6870}
+      Script: {instanceID: 6872}
     - Class: 114
-      Script: {instanceID: 7270}
+      Script: {instanceID: 7272}
     - Class: 114
-      Script: {instanceID: 9506}
+      Script: {instanceID: 9508}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -693,6 +691,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionExit2DMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 3d10288b204cc1c6533664020aa4232c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LevelSelectManager
   - hash:
       serializedVersion: 2
       Hash: a9340df851e094f0e1a209d8b81aaedc
@@ -1347,12 +1351,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 3d10288b204cc1c6533664020aa4232c
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: LevelSelectManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Level Select.unity
