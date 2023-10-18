@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1807197927250323665
+--- !u!1 &6949222347643906183
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6293412486049177018}
-  - component: {fileID: 6769268961481062478}
+  - component: {fileID: 7970353732234875631}
+  - component: {fileID: 4918750880447099010}
   m_Layer: 0
   m_Name: Bacon
   m_TagString: Untagged
@@ -17,32 +17,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6293412486049177018
+--- !u!4 &7970353732234875631
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807197927250323665}
+  m_GameObject: {fileID: 6949222347643906183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6611512, y: -0.44487345, z: 0.02815345}
+  m_LocalPosition: {x: 2.7363307, y: -0.99124444, z: -0.05884625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6769268961481062478
+--- !u!114 &4918750880447099010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807197927250323665}
+  m_GameObject: {fileID: 6949222347643906183}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2377625fbf418b44bbb4cfaaff140ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientId: 4
+  ingredientId: 9
   ingredientName: Bacon
+  image: {fileID: 2800000, guid: 0fa07b0dc604e4448af5cebc26b137cc, type: 3}

@@ -3,19 +3,28 @@ using UnityEngine.Tilemaps;
 
 public enum Ingredients
 {
-    SQUARE,
+    FLOUR,
+    EGGS,
+    BUTTER,
     CHOC_CHIP,
+    PEANUT_BUTTER,
+    MAPLE_SYRUP,
+    STRAWBERRY,
     SUGAR,
-    BERRY,
+    MILK,
     BACON,
+    BANANA,
+    BLUEBERRY,
+    WHIPPED_CREAM,
+    ROASTED_PECAN,
 }
 
 public enum Flavors
 {
     SWEET,
-    SAVORY,
+    RICH,
     PLAIN,
-    SPICY,
+    TART,
     SALTY,
 }
 

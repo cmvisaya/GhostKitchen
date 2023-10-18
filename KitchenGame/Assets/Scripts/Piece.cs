@@ -11,6 +11,7 @@ public class Piece : MonoBehaviour
     public int rotationIndex { get; private set; }
 
     private GameManager gm;
+    private int cellCount;
 
     public void Initialize(Board board, Vector3Int position, IngredientData data) {
         this.board = board;
@@ -24,6 +25,8 @@ public class Piece : MonoBehaviour
         for(int i = 0; i < data.cells.Length; i++) {
             this.cells[i] = (Vector3Int)data.cells[i];
         }
+
+        cellCount = data.cells.Length;
     }
 
     private void Update() {
@@ -80,7 +83,7 @@ public class Piece : MonoBehaviour
             int x, y;
 
             switch (this.data.ingredient) {
-                case Ingredients.SQUARE:
+                /*case Ingredients.SQUARE:
                     cell.x += 0.5f;
                     cell.y += 0.5f;
                     x = Mathf.FloorToInt((cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction));
@@ -91,7 +94,7 @@ public class Piece : MonoBehaviour
                     cell.y += 0.5f;
                     x = Mathf.FloorToInt((cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction));
                     y = Mathf.FloorToInt((cell.x * Data.RotationMatrix[2] * direction) + (cell.y * Data.RotationMatrix[3] * direction));
-                    break;
+                    break;*/
                 default:
                     x = Mathf.RoundToInt((cell.x * Data.RotationMatrix[0] * direction) + (cell.y * Data.RotationMatrix[1] * direction));
                     y = Mathf.RoundToInt((cell.x * Data.RotationMatrix[2] * direction) + (cell.y * Data.RotationMatrix[3] * direction));
@@ -123,8 +126,26 @@ public class Piece : MonoBehaviour
             bool valid = this.board.IsValidPosition(this, this.position);
 
             if(valid) {
+                gm.cellsCovered += cellCount;
+                switch(this.data.flavor) {
+                    case Flavors.SWEET:
+                        gm.flavoredCellsCovered[0] += cellCount;
+                        break;
+                    case Flavors.RICH:
+                        gm.flavoredCellsCovered[1] += cellCount;
+                        break;
+                    case Flavors.PLAIN:
+                        gm.flavoredCellsCovered[2] += cellCount;
+                        break;
+                    case Flavors.TART:
+                        gm.flavoredCellsCovered[3] += cellCount;
+                        break;
+                    case Flavors.SALTY:
+                        gm.flavoredCellsCovered[4] += cellCount;
+                        break;
+                }
                 gm.inPlacement = false;
-                gm.UI.SetActive(true);
+                gm.Randomize();
                 this.board.Lock(this);
             } else {
                 Debug.Log("SPOT INVALID!");
