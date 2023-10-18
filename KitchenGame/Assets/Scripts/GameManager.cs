@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
     }
 
     void Update() {
+
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+        
         if(!inPlacement && !inScoring) {
 
             for(int i = 0; i < currentCards.Length; i++) {
@@ -113,9 +119,11 @@ public class GameManager : MonoBehaviour
         } else {
             scoreText.text = scoreText.text + "F";
         }
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(0);
     }
 
-    //FD for flavor different: returns sum of  absolute values of flavor differences at all indices
+    //FD for flavor different: returns sum of absolute values of flavor differences at all indices
     private int CalcFd() {
         int sum = 0;
         for(int i = 0; i < desiredPercentages.Length; i++) {

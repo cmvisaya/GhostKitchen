@@ -378,6 +378,7 @@
 "Assets/Scripts/Data.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Ingredients.cs"
+"Assets/Scripts/LevelSelectManager.cs"
 "Assets/Scripts/Piece.cs"
 -langversion:9.0
 

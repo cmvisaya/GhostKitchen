@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: d1177adcee37e1f4e8693ffecf668c15
+  - enabled: 1
     path: Assets/Scenes/KitchenGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Small Pancake.unity
+    guid: 992a0729fbf0bf5409023850eb5b02e6
+  - enabled: 1
+    path: Assets/Scenes/Doughnut.unity
+    guid: cbf734feb6a71db4bb844223ea6f4e13
   m_configObjects: {}
