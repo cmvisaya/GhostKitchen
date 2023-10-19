@@ -17,7 +17,7 @@ public static class Data
         { Ingredients.MAPLE_SYRUP, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 1), new Vector2Int(0, 1), new Vector2Int(1, 0), new Vector2Int(1, -1) } },
         { Ingredients.STRAWBERRY, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(1, 0), new Vector2Int(0, -1) } },
         { Ingredients.SUGAR, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(1, -1) } },
-        { Ingredients.MILK, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1), new Vector2Int(1, -1) } },
+        { Ingredients.MILK, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(0, 1), new Vector2Int(-1, 1), new Vector2Int(1, 0), new Vector2Int(2, 0) } },
         { Ingredients.BACON, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(0, -1), new Vector2Int(0, -2), new Vector2Int(1, 0), new Vector2Int(2, 0) } },
         { Ingredients.BANANA, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(0, 1), new Vector2Int(1, 1), new Vector2Int(0, -1), new Vector2Int(1, -1) } },
         { Ingredients.BLUEBERRY, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 0) } },
