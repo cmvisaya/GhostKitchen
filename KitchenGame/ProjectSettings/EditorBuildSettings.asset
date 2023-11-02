@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Doughnut.unity
     guid: cbf734feb6a71db4bb844223ea6f4e13
+  - enabled: 1
+    path: Assets/Scenes/Mug.unity
+    guid: a23e988eca26ab44c9873a47ac9dd9fc
   m_configObjects: {}

@@ -207,6 +207,11 @@ MonoBehaviour:
 
     Salty:
 
+    0%
+
+
+    Spicy:
+
     0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3bce9b438de75242bd957db7c613333, type: 2}
@@ -234,7 +239,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.55
+  m_fontSize: 22.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1677,8 +1682,8 @@ MonoBehaviour:
   proposedOptimalTurns: 22
   totalCells: 54
   cellsCovered: 0
-  flavoredCellsCovered: 0000000000000000000000000000000000000000
-  desiredPercentages: 4600000000000000070000001400000003000000
+  flavoredCellsCovered: 000000000000000000000000000000000000000000000000
+  desiredPercentages: 3c00000000000000140000000000000000000000
   dogText: {fileID: 1550738787}
   dogDialogues:
   - Im a dog! Woof!
@@ -2581,7 +2586,7 @@ MonoBehaviour:
     Salty:
     3%
 
-'
+    Spicy: 0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3bce9b438de75242bd957db7c613333, type: 2}
   m_sharedMaterial: {fileID: -3401751487742072054, guid: a3bce9b438de75242bd957db7c613333, type: 2}

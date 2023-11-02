@@ -1137,14 +1137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgs:
-  - {fileID: 2800000, guid: a5bd5ff95e3f59b4ab28a56840a83dff, type: 3}
   - {fileID: 2800000, guid: c79879e539975c343a78cca8ba859272, type: 3}
-  - {fileID: 2800000, guid: 1d4f24e144aa035439283ab1f13a9d84, type: 3}
   levelNames:
-  - Big Pancake
   - Small Pancake
-  - Doughnut
-  levelIds: 010000000200000003000000
+  levelIds: 02000000
   bg: {fileID: 1545026744}
   levelName: {fileID: 628484863}
 --- !u!4 &1618342017

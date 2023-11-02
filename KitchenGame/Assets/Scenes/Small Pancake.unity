@@ -207,6 +207,11 @@ MonoBehaviour:
 
     Salty:
 
+    0%
+
+
+    Spicy:
+
     0%'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3bce9b438de75242bd957db7c613333, type: 2}
@@ -234,7 +239,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.55
+  m_fontSize: 22.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -482,7 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.972549, g: 0.52156866, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -736,7 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.972549, g: 0.52156866, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -900,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9716981, g: 0.5193115, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1170,7 +1175,9 @@ GameObject:
   m_Component:
   - component: {fileID: 688205177}
   - component: {fileID: 688205179}
+  - component: {fileID: 688205180}
   - component: {fileID: 688205178}
+  - component: {fileID: 688205181}
   m_Layer: 5
   m_Name: Card 4
   m_TagString: Untagged
@@ -1232,6 +1239,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688205176}
   m_CullTransparentMesh: 1
+--- !u!114 &688205180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688205176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914419721023e7e45b212ee41364fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNum: 3
+--- !u!61 &688205181
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688205176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 300, y: 180}
+  m_EdgeRadius: 0
 --- !u!1 &689097628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1307,9 @@ GameObject:
   m_Component:
   - component: {fileID: 689097629}
   - component: {fileID: 689097631}
+  - component: {fileID: 689097632}
   - component: {fileID: 689097630}
+  - component: {fileID: 689097633}
   m_Layer: 5
   m_Name: Card 2
   m_TagString: Untagged
@@ -1304,6 +1371,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689097628}
   m_CullTransparentMesh: 1
+--- !u!114 &689097632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689097628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914419721023e7e45b212ee41364fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNum: 1
+--- !u!61 &689097633
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689097628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 300, y: 180}
+  m_EdgeRadius: 0
 --- !u!1 &758876185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1587,9 @@ GameObject:
   m_Component:
   - component: {fileID: 760479936}
   - component: {fileID: 760479938}
+  - component: {fileID: 760479939}
   - component: {fileID: 760479937}
+  - component: {fileID: 760479940}
   m_Layer: 5
   m_Name: Card 1
   m_TagString: Untagged
@@ -1525,6 +1652,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760479935}
   m_CullTransparentMesh: 1
+--- !u!114 &760479939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760479935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914419721023e7e45b212ee41364fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNum: 0
+--- !u!61 &760479940
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760479935}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 300, y: 180}
+  m_EdgeRadius: 0
 --- !u!1 &940862160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1848,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentCardPos: 0
   nameText: {fileID: 1050059021}
   turnText: {fileID: 996831800}
   cardImages:
@@ -1677,8 +1863,8 @@ MonoBehaviour:
   proposedOptimalTurns: 16
   totalCells: 38
   cellsCovered: 0
-  flavoredCellsCovered: 0000000000000000000000000000000000000000
-  desiredPercentages: 4600000000000000070000001400000003000000
+  flavoredCellsCovered: 000000000000000000000000000000000000000000000000
+  desiredPercentages: 3c0000000000000014000000000000000000000000000000
   dogText: {fileID: 1550738787}
   dogDialogues:
   - Im a dog! Woof!
@@ -1694,6 +1880,7 @@ MonoBehaviour:
   - Borf borf borf
   - Mushroom dance, mushroom dance, whatever could it mean?
   coverageText: {fileID: 4343492}
+  optimalText: {fileID: 1438484397}
 --- !u!1 &996831798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +2170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1050059020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2223,8 +2410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -359.99997, y: 550}
-  m_SizeDelta: {x: 1100, y: 50}
+  m_AnchoredPosition: {x: -359.99997, y: 513}
+  m_SizeDelta: {x: 1100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130703800
 MonoBehaviour:
@@ -2246,7 +2433,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Z to PLACE | X to CANCEL | Q/E to ROTATE
+  m_text: 'Z to PLACE
+
+    X to CANCEL
+
+    Q/E to ROTATE'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3bce9b438de75242bd957db7c613333, type: 2}
   m_sharedMaterial: {fileID: -3401751487742072054, guid: a3bce9b438de75242bd957db7c613333, type: 2}
@@ -2273,7 +2464,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.55
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2393,8 +2584,8 @@ MonoBehaviour:
     flavor: 4
     tile: {fileID: 11400000, guid: f971a4972a675ff4ba6777ab562e51aa, type: 2}
   - ingredient: 3
-    flavor: 1
-    tile: {fileID: 11400000, guid: 5d1946f41a994aa47960a2a5044342a6, type: 2}
+    flavor: 0
+    tile: {fileID: 11400000, guid: d32405068ba55304ba78d13b8be0a3df, type: 2}
   - ingredient: 4
     flavor: 0
     tile: {fileID: 11400000, guid: d32405068ba55304ba78d13b8be0a3df, type: 2}
@@ -2488,7 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.972549, g: 0.52156866, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2567,7 +2758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pancakes
+  m_text: '
 
 
     Sweet: 70%
@@ -2580,6 +2771,8 @@ MonoBehaviour:
 
     Salty:
     3%
+
+    Spicy 0%
 
 '
   m_isRightToLeft: 0
@@ -3220,8 +3413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 415}
-  m_SizeDelta: {x: 680, y: 50}
+  m_AnchoredPosition: {x: 0, y: 338}
+  m_SizeDelta: {x: 680, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1502160797
 MonoBehaviour:
@@ -3243,9 +3436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Z to SELECT | X to PASS
-
-    ENTER to SUBMIT'
+  m_text: RESHUFFLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3bce9b438de75242bd957db7c613333, type: 2}
   m_sharedMaterial: {fileID: -3401751487742072054, guid: a3bce9b438de75242bd957db7c613333, type: 2}
@@ -3272,7 +3463,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3511,7 +3702,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1685761003}
   - component: {fileID: 1685761005}
+  - component: {fileID: 1685761006}
   - component: {fileID: 1685761004}
+  - component: {fileID: 1685761007}
   m_Layer: 5
   m_Name: Card 3
   m_TagString: Untagged
@@ -3573,6 +3766,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685761002}
   m_CullTransparentMesh: 1
+--- !u!114 &1685761006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685761002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914419721023e7e45b212ee41364fcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNum: 2
+--- !u!61 &1685761007
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685761002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 300, y: 180}
+  m_EdgeRadius: 0
 --- !u!1 &1771323738
 GameObject:
   m_ObjectHideFlags: 0

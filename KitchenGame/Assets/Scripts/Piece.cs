@@ -34,12 +34,15 @@ public class Piece : MonoBehaviour
         if(this.board != null && gm.inPlacement) {
             this.board.Clear(this);
 
-            if(Input.GetKeyDown(KeyCode.Q)) {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if(Input.GetKeyDown(KeyCode.Q) || scroll < 0) {
                 Rotate(-1);
-            } else if (Input.GetKeyDown(KeyCode.E)) {
+            } else if (Input.GetKeyDown(KeyCode.E) || scroll > 0) {
                 Rotate(1);
             }
 
+            float dx = Input.GetAxis("Mouse X");
+            float dy = Input.GetAxis("Mouse Y");
             if(Input.GetButtonDown("Up")) {
                 Move(Vector2Int.up);
             } else if (Input.GetButtonDown("Down")) {
@@ -48,14 +51,18 @@ public class Piece : MonoBehaviour
                 Move(Vector2Int.left);
             } else if (Input.GetButtonDown("Right")) {
                 Move(Vector2Int.right);
-            }
+            } else if(Mathf.Abs(dx) > 0 || Mathf.Abs(dy) > 0) {
+                Move();
+            } 
 
             this.board.Set(this);
 
-            if(Input.GetKeyDown(KeyCode.Z)) {
+            if(Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Fire1")) {
+                Cursor.visible = true;
                 Lock();
             }
-            if(Input.GetKeyDown(KeyCode.X)) {
+            if(Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown("Fire2")) {
+                Cursor.visible = true;
                 Cancel();
             }
         }
@@ -69,9 +76,18 @@ public class Piece : MonoBehaviour
 
         bool valid = this.board.IsValidPosition(this, newPosition);
         valid = true; //Comment this out to prevent movement outside of bounds
+        Debug.Log(newPosition);
         if (valid) {
             this.position = newPosition;
         }
+    }
+
+    private void Move() {
+        Debug.Log("Here's this: " + this.position);
+        Vector3Int newPosition = Vector3Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        newPosition.z = 0;
+        Debug.Log(newPosition);
+        this.position = newPosition;
     }
 
     private void Rotate(int direction) {

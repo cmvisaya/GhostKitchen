@@ -31,9 +31,9 @@ public class LevelSelectManager : MonoBehaviour
         levelName.text = levelNames[currentMenuItem];
         if(Input.GetKeyDown(KeyCode.Z)) {
             LoadLevel(levelIds[currentMenuItem]);
-        } else if (Input.GetKeyDown(KeyCode.D)) {
+        } else if (Input.GetButtonDown("Right")) {
             currentMenuItem = (currentMenuItem + 1) % bgs.Length;
-        } else if (Input.GetKeyDown(KeyCode.A)) {
+        } else if (Input.GetButtonDown("Left")) {
             currentMenuItem = (currentMenuItem + bgs.Length - 1) % bgs.Length;
         }
     }
