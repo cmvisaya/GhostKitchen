@@ -184,9 +184,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void Randomize() {
-        ArrayList pullFrom = new ArrayList(); //Use this to disallow duplicates
+        List<Card> pullFrom = new List<Card>(); //Use this to disallow duplicates
+        for(int i = 0; i < ingredientCards.Length; i++) {
+            pullFrom.Add(ingredientCards[i]);
+        }
         for(int i = 0; i < currentCards.Length; i++) {
-            currentCards[i] = ingredientCards[Random.Range(0, ingredientCards.Length)];
+            int randInd = Random.Range(0, pullFrom.Count);
+            currentCards[i] = pullFrom[randInd];
+            pullFrom.RemoveAt(randInd);
         }
         dogText.text = dogDialogues[Random.Range(0, dogDialogues.Length)];
         turnCount++;
