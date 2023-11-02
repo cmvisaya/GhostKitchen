@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mug.unity
     guid: a23e988eca26ab44c9873a47ac9dd9fc
+  - enabled: 1
+    path: Assets/Scenes/ChipsAndSalsa.unity
+    guid: 0946665fa5d80ef4597259c33a86d3fb
+  - enabled: 1
+    path: Assets/Scenes/CakeAndCandle.unity
+    guid: d81c537825c7e73439552c76d6a00ad7
   m_configObjects: {}

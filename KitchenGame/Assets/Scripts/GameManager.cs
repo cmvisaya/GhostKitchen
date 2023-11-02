@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Randomize() {
+        ArrayList pullFrom = new ArrayList(); //Use this to disallow duplicates
         for(int i = 0; i < currentCards.Length; i++) {
             currentCards[i] = ingredientCards[Random.Range(0, ingredientCards.Length)];
         }
