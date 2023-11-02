@@ -17,6 +17,21 @@ public enum Ingredients
     BLUEBERRY,
     WHIPPED_CREAM,
     ROASTED_PECAN,
+
+    SALSA,
+    CORN,
+    TOMATO,
+    DORITO,
+    FRITO,
+    SHREDDED_CHEESE,
+    SALT,
+    BEAN,
+    CHORIZO,
+    JALAPENO,
+
+    POW_SUGAR,
+    ICING,
+    WAX,
 }
 
 public enum Flavors

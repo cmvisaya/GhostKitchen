@@ -35,9 +35,9 @@ public class Piece : MonoBehaviour
             this.board.Clear(this);
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if(Input.GetKeyDown(KeyCode.Q) || scroll < 0) {
+            if(Input.GetKeyDown(KeyCode.Q) || scroll > 0) {
                 Rotate(-1);
-            } else if (Input.GetKeyDown(KeyCode.E) || scroll > 0) {
+            } else if (Input.GetKeyDown(KeyCode.E) || scroll < 0) {
                 Rotate(1);
             }
 
@@ -83,7 +83,7 @@ public class Piece : MonoBehaviour
     }
 
     private void Move() {
-        Debug.Log("Here's this: " + this.position);
+        Cursor.visible = false;
         Vector3Int newPosition = Vector3Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         newPosition.z = 0;
         Debug.Log(newPosition);
@@ -163,8 +163,9 @@ public class Piece : MonoBehaviour
                 gm.inPlacement = false;
                 gm.Randomize();
                 this.board.Lock(this);
+                gm.am.Play(1, 1f);
             } else {
-                Debug.Log("SPOT INVALID!");
+                gm.am.Play(0, 0.5f);
             }
         }
     }

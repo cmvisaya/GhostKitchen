@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private Board board;
     public bool zCooling = false;
     public bool inPlacement = false;
+    public bool onOtherButton = false;
+    public int otherButtonID;
 
     //Scoring
     private bool inScoring = false;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI coverageText;
     public TextMeshProUGUI optimalText;
 
+    public AudioManager am;
+
     void Start() {
         Randomize();
         foreach(GameObject border in selectionBorders) {
@@ -44,6 +48,7 @@ public class GameManager : MonoBehaviour
         }
         board = GameObject.Find("Ingredient Layer").GetComponent<Board>();
         turnCount = 1;
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update() {
@@ -65,13 +70,27 @@ public class GameManager : MonoBehaviour
             }
 
             for(int i = 0; i < selectionBorders.Length; i++) {
-                if(i == currentCardPos) { selectionBorders[i].SetActive(true); }
+                if(i == currentCardPos && !onOtherButton) { selectionBorders[i].SetActive(true); }
                 else { selectionBorders[i].SetActive(false); }
             }
 
             if(Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Fire1")) {
-                Cursor.visible = false;
-                SelectCard();
+                if(!onOtherButton) {
+                    Cursor.visible = false;
+                    SelectCard();
+                } else {
+                    switch(otherButtonID) {
+                        case 0:
+                            if(!inScoring) {
+                                inScoring = true;
+                                StartCoroutine(Score());
+                            }
+                            break;
+                        case 1:
+                            Randomize();
+                            break;
+                    }
+                }
             } else if (Input.GetKeyDown(KeyCode.X)) {
                 Randomize();
             } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
@@ -83,10 +102,18 @@ public class GameManager : MonoBehaviour
             } else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
                 currentCardPos = (currentCardPos + currentCards.Length - 2) % currentCards.Length;
             } else if (Input.GetKeyDown(KeyCode.Return)) {
-                inScoring = true;
-                StartCoroutine(Score());
+                if(!inScoring) {
+                    inScoring = true;
+                    StartCoroutine(Score());
+                }
             }
             
+        }
+    }
+
+    public void DeselectAll() {
+        foreach(GameObject border in selectionBorders) {
+            border.SetActive(false);
         }
     }
 
@@ -97,7 +124,7 @@ public class GameManager : MonoBehaviour
         int percentCoveragePoints = (100 * cellsCovered / totalCells) * 10;
         scoreText.text = scoreText.text + "\n\nPercent Covered Points:\n" + percentCoveragePoints;
         yield return new WaitForSeconds(1f);
-        int flavorPoints = 500 - (CalcFd() * 5);
+        int flavorPoints = 1000 - (CalcFd() * 5);
         scoreText.text = scoreText.text + "\n\nFlavor Points:\n" + flavorPoints;
         yield return new WaitForSeconds(1f);
         int turnBonus = (proposedOptimalTurns * 10 - (Mathf.Max(Mathf.Abs(turnCount - proposedOptimalTurns), 0) * 10));
@@ -107,23 +134,23 @@ public class GameManager : MonoBehaviour
         int totalPoints = percentCoveragePoints + flavorPoints + turnBonus;
         scoreText.text = scoreText.text + "\n\nTotal Points:\n" + totalPoints;
         yield return new WaitForSeconds(1f);
-        scoreText.text = scoreText.text + "\n\nOverall Score:\n";
+        scoreText.text = scoreText.text + "\n\nOverall Performance:\n";
         yield return new WaitForSeconds(2f);
         int scorePercent = 100 * totalPoints / 1500;
         if(totalPoints == 1500 + proposedOptimalTurns * 10) {
-            scoreText.text = scoreText.text + "SS";
+            scoreText.text = scoreText.text + "Perfect!";
         } else if(scorePercent >= 100) {
-            scoreText.text = scoreText.text + "S";
+            scoreText.text = scoreText.text + "Superb!";
         } else if(scorePercent >= 90) {
-            scoreText.text = scoreText.text + "A";
+            scoreText.text = scoreText.text + "Great!";
         } else if(scorePercent >= 80) {
-            scoreText.text = scoreText.text + "B";
+            scoreText.text = scoreText.text + "Good!";
         } else if(scorePercent >= 70) {
-            scoreText.text = scoreText.text + "C";
+            scoreText.text = scoreText.text + "Nice!";
         } else if(scorePercent >= 60) {
-            scoreText.text = scoreText.text + "D";
+            scoreText.text = scoreText.text + "Okay!";
         } else {
-            scoreText.text = scoreText.text + "F";
+            scoreText.text = scoreText.text + "Just Okay.";
         }
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
@@ -167,12 +194,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateCoverageText() {
         if(cellsCovered != 0) {
-            coverageText.text = "Total:\n" + (100 * cellsCovered / totalCells) + "%\n\n"
-                + "Sweet:\n" + (100 * flavoredCellsCovered[0] / totalCells) + "%\n\n"
-                + "Rich:\n" + (100 * flavoredCellsCovered[1] / totalCells) + "%\n\n"
-                + "Plain:\n" + (100 * flavoredCellsCovered[2] / totalCells) + "%\n\n"
-                + "Tart:\n" + (100 * flavoredCellsCovered[3] / totalCells) + "%\n\n"
-                + "Salty:\n" + (100 * flavoredCellsCovered[4] / totalCells) + "%\n\n"
+            coverageText.text = "Total:\n" + (100 * cellsCovered / totalCells) + "%\n"
+                + "Sweet:\n" + (100 * flavoredCellsCovered[0] / totalCells) + "%\n"
+                + "Rich:\n" + (100 * flavoredCellsCovered[1] / totalCells) + "%\n"
+                + "Plain:\n" + (100 * flavoredCellsCovered[2] / totalCells) + "%\n"
+                + "Tart:\n" + (100 * flavoredCellsCovered[3] / totalCells) + "%\n"
+                + "Salty:\n" + (100 * flavoredCellsCovered[4] / totalCells) + "%\n"
                 + "Spicy:\n" + (100 * flavoredCellsCovered[5] / totalCells) + "%";
         }
     }
