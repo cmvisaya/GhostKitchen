@@ -19,7 +19,6 @@ public class Piece : MonoBehaviour
         this.data = data;
         this.rotationIndex = 0;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
         this.cells = new Vector3Int[data.cells.Length];
 
         for(int i = 0; i < data.cells.Length; i++) {
@@ -33,6 +32,8 @@ public class Piece : MonoBehaviour
 
         if(this.board != null && gm.inPlacement) {
             this.board.Clear(this);
+
+            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction);
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if(Input.GetKeyDown(KeyCode.Q) || scroll > 0) {
@@ -73,13 +74,7 @@ public class Piece : MonoBehaviour
         Vector3Int newPosition = this.position;
         newPosition.x += translation.x;
         newPosition.y += translation.y;
-
-        bool valid = this.board.IsValidPosition(this, newPosition);
-        valid = true; //Comment this out to prevent movement outside of bounds
-        Debug.Log(newPosition);
-        if (valid) {
-            this.position = newPosition;
-        }
+        this.position = newPosition;
     }
 
     private void Move() {
@@ -139,7 +134,7 @@ public class Piece : MonoBehaviour
     private void Lock() {
         if(!gm.zCooling) {
             gm.ZCool();
-            bool valid = this.board.IsValidPosition(this, this.position);
+            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction);
 
             if(valid) {
                 gm.cellsCovered += cellCount;
@@ -159,11 +154,18 @@ public class Piece : MonoBehaviour
                     case Flavors.SALTY:
                         gm.flavoredCellsCovered[4] += cellCount;
                         break;
+                    case Flavors.SPICY:
+                        gm.flavoredCellsCovered[5] += cellCount;
+                        break;
                 }
                 gm.inPlacement = false;
+                gm.bypassPlacementRestriction = false;
+                gm.canRandomize = true;
                 gm.Randomize();
                 this.board.Lock(this);
                 gm.am.Play(1, 1f);
+                gm.IncrementPieces();
+                gm.CheckDinMint();
             } else {
                 gm.am.Play(0, 0.5f);
             }

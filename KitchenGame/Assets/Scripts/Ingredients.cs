@@ -32,6 +32,8 @@ public enum Ingredients
     POW_SUGAR,
     ICING,
     WAX,
+
+    ENCHANTED,
 }
 
 public enum Flavors
