@@ -15,6 +15,12 @@ public class ClickableCard : MonoBehaviour
 
     void OnMouseOver()
     {
+        gm.onOtherButton = false;
         gm.currentCardPos = cardNum;
+    }
+
+    void OnMouseExit() {
+        gm.onOtherButton = true;
+        gm.otherButtonID = -1;
     }
 }

@@ -380,9 +380,13 @@
 "Assets/Scripts/Data.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Ingredients.cs"
+"Assets/Scripts/LevelSelectButtons.cs"
 "Assets/Scripts/LevelSelectManager.cs"
 "Assets/Scripts/OtherButtons.cs"
 "Assets/Scripts/Piece.cs"
+"Assets/Scripts/TitleScreenButtons.cs"
+"Assets/Scripts/TitleScreenManager.cs"
+"Assets/Scripts/TutorialSceneManager.cs"
 -langversion:9.0
 
 /deterministic

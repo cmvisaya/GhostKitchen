@@ -21,10 +21,10 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        source = GetComponent<AudioSource>();
     }
 
     void Start() {
-        source = GetComponent<AudioSource>();
     }
 
     public void Play(int id, float volume) {

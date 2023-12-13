@@ -56,10 +56,34 @@ public class Board : MonoBehaviour
     }
 
     public void SpawnPiece(int id) {
-        IngredientData data = this.ingredients[id];
-
-        this.activePiece.Initialize(this, this.spawnPosition, data);
-        Set(this.activePiece);
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(gm.inSugarRush) {
+            IngredientData data = this.ingredients[id];
+            switch(data.flavor) {
+                case Flavors.SWEET:
+                    SugarRush(0);
+                    break;
+                case Flavors.RICH:
+                    SugarRush(1);
+                    break;
+                case Flavors.PLAIN:
+                    SugarRush(2);
+                    break;
+                case Flavors.TART:
+                    SugarRush(3);
+                    break;
+                case Flavors.SALTY:
+                    SugarRush(4);
+                    break;
+                case Flavors.SPICY:
+                    SugarRush(5);
+                    break;
+            }
+        } else {
+            IngredientData data = this.ingredients[id];
+            this.activePiece.Initialize(this, this.spawnPosition, data);
+            Set(this.activePiece);
+        }
     }
 
     public void SugarRush(int id) {
@@ -86,11 +110,16 @@ public class Board : MonoBehaviour
     public void Lock(Piece piece) {
         bool foundAdjacent = false;
         bool overlapPowerup = false;
+        int cellsDown = 0;
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Vector3Int[] newTilePositions = new Vector3Int[piece.cells.Length];
         for (int i = 0; i < piece.cells.Length; i++) {
             Vector3Int tilePosition = piece.cells[i] + piece.position;
             newTilePositions[i] = tilePosition;
-            this.setTiles.SetTile(tilePosition, piece.data.tile);
+            if(!gm.srFill || (gm.srFill && this.boardMap.HasTile(tilePosition) && !this.setTiles.HasTile(tilePosition))) {
+                this.setTiles.SetTile(tilePosition, piece.data.tile);
+                cellsDown++;
+            }
             this.tilemap.SetTile(tilePosition, null);
             if(this.powerUpTiles.HasTile(tilePosition)) {
                 this.powerUpTiles.SetTile(tilePosition, null);
@@ -111,41 +140,53 @@ public class Board : MonoBehaviour
         }
         Debug.Log("Found adjacent: " + foundAdjacent + " | " + piece.data.flavor + " | " + oldFlavor);
         bool holdCombo = foundAdjacent && (piece.data.flavor == oldFlavor);
-        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gm.IncrementPoints(piece.cells.Length, holdCombo);
+        gm.IncrementPoints(cellsDown, holdCombo);
         oldTilePositions = new Vector3Int[newTilePositions.Length];
         oldFlavor = piece.data.flavor;
         Array.Copy(newTilePositions, oldTilePositions, newTilePositions.Length);
+        int pcode = -1;
         if(overlapPowerup) {
             switch(oldFlavor) {
                 case Flavors.SWEET:
                         gm.powerUpCode = 1;
+                        pcode = 1;
+                        gm.hasPowerups[1] = true;
                         break;
                     case Flavors.RICH:
                         gm.powerUpCode = 2;
+                        pcode = 2;
+                        gm.hasPowerups[2] = true;
                         break;
                     case Flavors.PLAIN:
                         gm.powerUpCode = 1;
+                        pcode = 1;
+                        gm.hasPowerups[1] = true;
                         break;
                     case Flavors.TART:
                         gm.powerUpCode = 0;
+                        pcode = 0;
+                        gm.hasPowerups[0] = true;
                         break;
                     case Flavors.SALTY:
                         gm.powerUpCode = 0;
+                        pcode = 0;
+                        gm.hasPowerups[0] = true;
                         break;
                     case Flavors.SPICY:
                         gm.powerUpCode = 2;
+                        pcode = 2;
+                        gm.hasPowerups[2] = true;
                         break;
             }
-            gm.SetPowerup();
+            gm.SetPowerup(pcode);
         }
     }
 
-    public bool IsValidPosition(Piece piece, Vector3Int position, bool ignoreSet) {
+    public bool IsValidPosition(Piece piece, Vector3Int position, bool ignoreSet, bool srFill) {
         for(int i = 0; i < piece.cells.Length; i++) {
             Vector3Int tilePosition = piece.cells[i] + position;
 
-            if (!this.boardMap.HasTile(tilePosition) || (this.setTiles.HasTile(tilePosition) && !ignoreSet)) {
+            if (!srFill && (!this.boardMap.HasTile(tilePosition) || (this.setTiles.HasTile(tilePosition) && !ignoreSet))) {
                 return false;
             }
         }

@@ -7,12 +7,15 @@ public class OtherButtons : MonoBehaviour
 {
 
     public int otherButtonID;
+    public int otherButtonCode;
     private GameManager gm;
     public GameObject border;
 
     void Start() {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        border.SetActive(false);
+        if(border != null) {
+            border.SetActive(false);
+        }
     }
 
     void OnMouseOver()
@@ -21,13 +24,17 @@ public class OtherButtons : MonoBehaviour
             gm.DeselectAll();
             gm.onOtherButton = true;
             gm.otherButtonID = otherButtonID;
-            border.SetActive(true);
+            gm.otherButtonCode = otherButtonCode;
+            if(border != null) { border.SetActive(true); }
         }
     }
 
     void OnMouseExit()
     {
-        gm.onOtherButton = false;
-        border.SetActive(false);
+        //gm.onOtherButton = false;
+        gm.otherButtonID = -1;
+        if(border != null) {
+            border.SetActive(false);
+        }
     }
 }

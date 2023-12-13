@@ -33,7 +33,7 @@ public class Piece : MonoBehaviour
         if(this.board != null && gm.inPlacement) {
             this.board.Clear(this);
 
-            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction);
+            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction, gm.srFill);
 
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if(Input.GetKeyDown(KeyCode.Q) || scroll > 0) {
@@ -81,7 +81,7 @@ public class Piece : MonoBehaviour
         Cursor.visible = false;
         Vector3Int newPosition = Vector3Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         newPosition.z = 0;
-        Debug.Log(newPosition);
+        //Debug.Log(newPosition);
         this.position = newPosition;
     }
 
@@ -129,37 +129,46 @@ public class Piece : MonoBehaviour
         this.board.Clear(this);
         gm.inPlacement = false;
         gm.UI.SetActive(true);
+        gm.ResetPowerups();
     }
 
     private void Lock() {
         if(!gm.zCooling) {
             gm.ZCool();
-            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction);
+            bool valid = this.board.IsValidPosition(this, this.position, gm.bypassPlacementRestriction, gm.srFill);
 
             if(valid) {
                 gm.cellsCovered += cellCount;
                 switch(this.data.flavor) {
                     case Flavors.SWEET:
                         gm.flavoredCellsCovered[0] += cellCount;
+                        gm.ps[0].Play();
                         break;
                     case Flavors.RICH:
                         gm.flavoredCellsCovered[1] += cellCount;
+                        gm.ps[1].Play();
                         break;
                     case Flavors.PLAIN:
                         gm.flavoredCellsCovered[2] += cellCount;
+                        gm.ps[2].Play();
                         break;
                     case Flavors.TART:
                         gm.flavoredCellsCovered[3] += cellCount;
+                        gm.ps[3].Play();
                         break;
                     case Flavors.SALTY:
                         gm.flavoredCellsCovered[4] += cellCount;
+                        gm.ps[4].Play();
                         break;
                     case Flavors.SPICY:
                         gm.flavoredCellsCovered[5] += cellCount;
+                        gm.ps[5].Play();
                         break;
                 }
                 gm.inPlacement = false;
                 gm.bypassPlacementRestriction = false;
+                gm.srFill = false;
+                gm.inSugarRush = false;
                 gm.canRandomize = true;
                 gm.Randomize();
                 this.board.Lock(this);

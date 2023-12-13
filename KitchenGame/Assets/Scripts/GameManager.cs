@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
     private Board board;
     public bool zCooling = false;
     public bool inPlacement = false;
+    public bool inSugarRush = false;
     public bool onOtherButton = false;
     public int otherButtonID;
+    public int otherButtonCode;
 
     //Scoring
     private bool inScoring = false;
@@ -50,10 +52,26 @@ public class GameManager : MonoBehaviour
     private bool powerUpOnBoard = false;
     public bool hasPowerup = false;
     public bool bypassPlacementRestriction = false;
+    public bool srFill = false;
     public int sugarRushID = 0;
     public int powerUpCode = 0;
 
     public bool canRandomize = true;
+
+    public GameObject mintButton;
+    public GameObject nonMintButton;
+
+    //Juice
+    public ParticleSystem[] ps;
+    public bool[] hasPowerups;
+    public int lvlSelSceneID = -1;
+    public SpriteRenderer[] powerUpButtons;
+    public RawImage reshuffle;
+    public Texture2D[] reshuffleButtonImages;
+    TutorialSceneManager tsm;
+    public TextMeshProUGUI newDogText;
+    public TextMeshProUGUI comboText;
+    public Animator animReshuffle;
 
     void Start() {
         Randomize();
@@ -63,6 +81,10 @@ public class GameManager : MonoBehaviour
         board = GameObject.Find("Ingredient Layer").GetComponent<Board>();
         turnCount = 1;
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        mintButton.SetActive(false);
+        nonMintButton.SetActive(true);
+        reshuffle.texture = reshuffleButtonImages[0];
+        tsm = GameObject.Find("TutorialManager").GetComponent<TutorialSceneManager>();
     }
 
     void Update() {
@@ -75,7 +97,7 @@ public class GameManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
+            SceneManager.LoadScene(lvlSelSceneID);
         }
         
         if(!inPlacement && !inScoring) {
@@ -106,14 +128,20 @@ public class GameManager : MonoBehaviour
                             break;
                         case 1:
                             Randomize();
-                            canRandomize = false;
+                            reshuffle.texture = reshuffleButtonImages[1];
+                            animReshuffle.Play("shufflever", -1, 0f);
+                            canRandomize = false; //COMMENT OUT THIS LINE IF YOU WANT RANDOMIZATION TO BE INFINITE
                             break;
                         case 2:
                             if(hasPowerup) {
                                 ExecutePowerUp(powerUpCode);
                             }
                             break;
+                        case 3:
+                            if(hasPowerups[otherButtonCode]) { ExecutePowerUp(otherButtonCode); }
+                            break;
                     }
+                    if(otherButtonID == -500) { tsm.BeginTutorial(); }
                 }
             } else if (Input.GetKeyDown(KeyCode.X)) {
                 Randomize();
@@ -135,6 +163,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetButtonActive(int id, bool active) {
+        Debug.Log("THIS IS THE CODE: " + id + active);
+        if(id < powerUpButtons.Length) {
+            float luminance = active ? 255 : 100;
+            luminance /= 255;
+            powerUpButtons[id].color = new Color(luminance, luminance, luminance, 255);
+        }
+    }
+
     public void CheckDinMint() {
         bool dinMintActivate = true;
         for(int i = 0; i < flavoredCellsCovered.Length; i++) {
@@ -144,7 +181,9 @@ public class GameManager : MonoBehaviour
         }
         if(dinMintActivate) {
             powerUpCode = 3;
-            SetPowerup();
+            SetPowerup(3);
+            mintButton.SetActive(true);
+            nonMintButton.SetActive(false);
         }
     }
 
@@ -169,20 +208,27 @@ public class GameManager : MonoBehaviour
                 powerupText.text = "~DINNER MINT~";
                 break;
         }
+        //SetButtonActive(powerUpCode, true);
+    }
+
+    public void SetPowerup(int ID) {
+        hasPowerups[ID] = true;
+        SetButtonActive(ID, true);
     }
 
     public void ExecutePowerUp(int code) {
         hasPowerup = false;
         Board b = GameObject.Find("Ingredient Layer").GetComponent<Board>();
+        SetButtonActive(code, false);
         switch(code) {
             case 0: //Collapse
                 bypassPlacementRestriction = true;
                 break;
             case 1: //Sugar Rush
-                Cursor.visible = false;
                 ZCool();
-                board.SugarRush(sugarRushID);
-                inPlacement = true;
+                //board.SugarRush(sugarRushID);
+                srFill = true; //CHANGE TO FILL INSTEAD OF BYPASS
+                inSugarRush = true;
                 break;
             case 2: //Melt (Look up line-clears in the tutorial i took this from)
                 RectInt bounds = b.Bounds;
@@ -217,12 +263,21 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case 3:
-                b.setTiles.ClearAllTiles();
-                b.tilemap.ClearAllTiles();
-                for(int i = 0; i < flavoredCellsCovered.Length; i++) {
-                    flavoredCellsCovered[i] = 0;
-                    if(desiredPercentages[i] != 0) {
-                        desiredPercentages[i] += 5;
+                if(!nonMintButton.activeSelf) {
+                    b.setTiles.ClearAllTiles();
+                    b.tilemap.ClearAllTiles();
+                    mintButton.SetActive(false);
+                    nonMintButton.SetActive(true);
+                    for(int i = 0; i < flavoredCellsCovered.Length; i++) {
+                        flavoredCellsCovered[i] = 0;
+                        if(desiredPercentages[i] != 0) {
+                            desiredPercentages[i] += 5;
+                        }
+                    }
+                    cellsCovered = 0;
+                    UpdateCoverageText();
+                    foreach(ParticleSystem p in ps) {
+                        p.Play();
                     }
                 }
                 break;
@@ -237,11 +292,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetPowerups() {
+        if(inSugarRush) {
+            inSugarRush = false;
+            srFill = false;
+            SetPowerup(1);
+        }
+        if(bypassPlacementRestriction) {
+            bypassPlacementRestriction = false;
+            SetPowerup(0);
+        }
+    }
+
     public void IncrementPoints(int points, bool holdCombo) {
         combo = holdCombo ? combo + 1 : 1;
-        int pointsAdded = points * combo * 100;
+        int pointsAdded = points * combo * 1000;
         this.points += pointsAdded;
-        dogText.text = "( " + combo + "x) PTS: " +  this.points;
+        dogText.text = "" + this.points;
+        comboText.text = "X" + combo;
     }
 
     public void IncrementPieces() {
@@ -293,7 +361,11 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Final Score: " + points + "!!!";
         scorecard.SetActive(true);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(0);
+        if(lvlSelSceneID >= 0) {
+            SceneManager.LoadScene(lvlSelSceneID);
+        } else {
+            Application.Quit();
+        }
     }
 
     //FD for flavor different: returns sum of absolute values of flavor differences at all indices
@@ -325,6 +397,7 @@ public class GameManager : MonoBehaviour
 
     public void Randomize() {
         if(canRandomize) {
+            reshuffle.texture = reshuffleButtonImages[0];
             List<Card> pullFrom = new List<Card>(); //Use this to disallow duplicates
             for(int i = 0; i < ingredientCards.Length; i++) {
                 pullFrom.Add(ingredientCards[i]);
@@ -334,22 +407,20 @@ public class GameManager : MonoBehaviour
                 currentCards[i] = pullFrom[randInd];
                 pullFrom.RemoveAt(randInd);
             }
-            //dogText.text = dogDialogues[Random.Range(0, dogDialogues.Length)];
+            newDogText.text = dogDialogues[Random.Range(0, dogDialogues.Length)];
             turnCount++;
             turnText.text = "Turn: " + turnCount;
         }
     }
 
     public void UpdateCoverageText() {
-        if(cellsCovered != 0) {
-            coverageText.text = "Total:\n" + (100 * cellsCovered / totalCells) + "%\n"
-                + "Sweet:\n" + (100 * flavoredCellsCovered[0] / totalCells) + "%\n"
-                + "Rich:\n" + (100 * flavoredCellsCovered[1] / totalCells) + "%\n"
-                + "Plain:\n" + (100 * flavoredCellsCovered[2] / totalCells) + "%\n"
-                + "Tart:\n" + (100 * flavoredCellsCovered[3] / totalCells) + "%\n"
-                + "Salty:\n" + (100 * flavoredCellsCovered[4] / totalCells) + "%\n"
-                + "Spicy:\n" + (100 * flavoredCellsCovered[5] / totalCells) + "%";
-        }
+        coverageText.text = "Total: " + (100 * cellsCovered / totalCells) + "%\n\n"
+            + "Sweet: " + (100 * flavoredCellsCovered[0] / totalCells) + "%\n"
+            + "Rich: " + (100 * flavoredCellsCovered[1] / totalCells) + "%\n"
+            + "Plain: " + (100 * flavoredCellsCovered[2] / totalCells) + "%\n"
+            + "Tart: " + (100 * flavoredCellsCovered[3] / totalCells) + "%\n"
+            + "Salty: " + (100 * flavoredCellsCovered[4] / totalCells) + "%\n"
+            + "Spicy: " + (100 * flavoredCellsCovered[5] / totalCells) + "%";
     }
     
     public void UpdateReqText() {
