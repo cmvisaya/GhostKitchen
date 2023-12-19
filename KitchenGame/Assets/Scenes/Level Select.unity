@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133a982473b28540a9c800379393d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherButtonID: 2
+  otherButtonID: 5
   border: {fileID: 1496839300}
 --- !u!114 &476460862
 MonoBehaviour:
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133a982473b28540a9c800379393d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherButtonID: 2
+  otherButtonID: 4
   border: {fileID: 1545245433}
 --- !u!114 &1163726351
 MonoBehaviour:
@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133a982473b28540a9c800379393d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherButtonID: 2
+  otherButtonID: 6
   border: {fileID: 486964485}
 --- !u!114 &1391652056
 MonoBehaviour:
@@ -3038,7 +3038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b133a982473b28540a9c800379393d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherButtonID: 2
+  otherButtonID: 3
   border: {fileID: 1517760809}
 --- !u!114 &2004304190
 MonoBehaviour:

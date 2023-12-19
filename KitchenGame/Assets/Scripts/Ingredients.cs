@@ -34,6 +34,22 @@ public enum Ingredients
     WAX,
 
     ENCHANTED,
+
+    CREAM,
+    CREAM_CHEESE,
+    WHOLE_MILK,
+    CINNAMON,
+    CHILI_FLAKE,
+
+    SHREDDED_COCONUT,
+    LIME_ZEST,
+
+    CARAMEL,
+    SOUR_CREAM,
+    CRISPY_ONION,
+
+    COCOA_BEAN,
+
 }
 
 public enum Flavors

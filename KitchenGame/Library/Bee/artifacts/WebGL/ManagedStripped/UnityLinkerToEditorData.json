@@ -5,14 +5,38 @@
         "name": "Animation",
         "dependencies": [
           {
+            "name": "AnimationClip",
+            "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
+            ],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
             "name": "Animator",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AnimatorController",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
+            ],
             "dependencyType": 1,
             "icon": null
           },
@@ -20,6 +44,12 @@
             "name": "AnimatorOverrideController",
             "scenes": [],
             "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "Motion",
+            "scenes": [],
+            "dependencyType": 1,
             "icon": null
           },
           {
@@ -36,8 +66,12 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -46,7 +80,11 @@
           {
             "name": "AudioClip",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -55,8 +93,12 @@
           {
             "name": "AudioListener",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -71,7 +113,11 @@
           {
             "name": "AudioSource",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -80,7 +126,11 @@
           {
             "name": "SampleClip",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 1,
@@ -106,8 +156,12 @@
           {
             "name": "Camera",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -146,8 +200,12 @@
           {
             "name": "EditorExtension",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 1,
@@ -162,8 +220,12 @@
           {
             "name": "GameObject",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -190,8 +252,12 @@
           {
             "name": "LevelGameManager",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 1,
@@ -218,8 +284,12 @@
           {
             "name": "LightmapSettings",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -234,8 +304,12 @@
           {
             "name": "Material",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -262,8 +336,12 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -278,8 +356,12 @@
           {
             "name": "MonoScript",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 1,
@@ -288,8 +370,12 @@
           {
             "name": "NamedObject",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 1,
@@ -322,8 +408,12 @@
           {
             "name": "RectTransform",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -338,8 +428,12 @@
           {
             "name": "RenderSettings",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -372,8 +466,12 @@
           {
             "name": "Shader",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -394,7 +492,11 @@
           {
             "name": "Sprite",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -408,7 +510,11 @@
           {
             "name": "SpriteRenderer",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -428,8 +534,12 @@
           {
             "name": "Texture",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -438,8 +548,12 @@
           {
             "name": "Texture2D",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -573,7 +687,11 @@
           {
             "name": "Grid",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -643,7 +761,11 @@
           {
             "name": "ParticleSystem",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -651,7 +773,11 @@
           {
             "name": "ParticleSystemRenderer",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -664,8 +790,12 @@
           {
             "name": "BoxCollider2D",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -849,7 +979,11 @@
           {
             "name": "Font",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -893,7 +1027,11 @@
           {
             "name": "Tilemap",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -901,7 +1039,11 @@
           {
             "name": "TilemapRenderer",
             "scenes": [
-              "Assets/Scenes/ChipsAndSalsa.unity"
+              "Assets/Scenes/BirthdayCake.unity",
+              "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
+              "Assets/Scenes/Pancake.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -914,8 +1056,12 @@
           {
             "name": "Canvas",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,
@@ -930,8 +1076,12 @@
           {
             "name": "CanvasRenderer",
             "scenes": [
+              "Assets/Scenes/BirthdayCake.unity",
               "Assets/Scenes/ChipsAndSalsa.unity",
+              "Assets/Scenes/EverythingBagel.unity",
+              "Assets/Scenes/Hot Cocoa.unity",
               "Assets/Scenes/Level Select.unity",
+              "Assets/Scenes/Pancake.unity",
               "Assets/Scenes/TitleScreen.unity"
             ],
             "dependencyType": 0,

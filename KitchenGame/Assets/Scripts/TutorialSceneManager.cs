@@ -23,6 +23,7 @@ public class TutorialSceneManager : MonoBehaviour
     void Update()
     {
         if(tutorialWindow.activeSelf && (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Fire1"))) {
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().Play(5, 0.3f);
             currentItem++;
             if(currentItem < textures.Length) { bg.texture = textures[currentItem]; }
             else { tutorialWindow.SetActive(false); inTutorial = false; }

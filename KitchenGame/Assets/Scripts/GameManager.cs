@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
     public GameObject mintButton;
     public GameObject nonMintButton;
 
+    public bool buttonPlayable = true;
+
     //Juice
     public ParticleSystem[] ps;
     public bool[] hasPowerups;
@@ -74,6 +76,9 @@ public class GameManager : MonoBehaviour
     public Animator animReshuffle;
 
     void Start() {
+        for(int i = 0; i < ingredientCards.Length; i++) {
+            ingredientCards[i].arrayIndex = i;
+        }
         Randomize();
         foreach(GameObject border in selectionBorders) {
             border.SetActive(false);
@@ -115,6 +120,8 @@ public class GameManager : MonoBehaviour
             }
 
             if(Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown("Fire1")) {
+                            GameObject.Find("AudioManager").GetComponent<AudioManager>().Play(5, 0.3f);
+
                 if(!onOtherButton) {
                     Cursor.visible = false;
                     SelectCard();
@@ -218,7 +225,6 @@ public class GameManager : MonoBehaviour
 
     public void ExecutePowerUp(int code) {
         hasPowerup = false;
-        Board b = GameObject.Find("Ingredient Layer").GetComponent<Board>();
         SetButtonActive(code, false);
         switch(code) {
             case 0: //Collapse
@@ -231,9 +237,8 @@ public class GameManager : MonoBehaviour
                 inSugarRush = true;
                 break;
             case 2: //Melt (Look up line-clears in the tutorial i took this from)
-                RectInt bounds = b.Bounds;
+                RectInt bounds = board.Bounds;
                 int row = -5;
-                int attemptCol = 0;
                 /*
                 for(int col = attemptCol - 1; col < attemptCol + 3; col++) {
                     Vector3Int position = new Vector3Int(col, row, 0);
@@ -242,19 +247,18 @@ public class GameManager : MonoBehaviour
                 }*/
                 // Shift every row above down one
                 for(int i = 0; i < 8; i++) {
-                    row = -5;
-                    while (row < bounds.yMax)
+                    row = board.minY;
+                    while (row < board.maxY)
                     {
                         for (int col = board.minX; col < board.maxX + 1; col++) //Change to be relative to attempt col
                         {
                             Vector3Int ap = new Vector3Int(col, row + 1, 0);
-                            TileBase above = b.setTiles.GetTile(ap);
+                            TileBase above = board.setTiles.GetTile(ap);
 
                             Vector3Int position = new Vector3Int(col, row, 0);
-                            if(!b.setTiles.HasTile(position) && row >= b.minY) {
-                                b.setTiles.SetTile(ap, null);
-                                b.tilemap.SetTile(ap, null);
-                                b.setTiles.SetTile(position, above);
+                            if(!board.setTiles.HasTile(position) && row >= board.minY && board.boardMap.HasTile(position)) {
+                                board.setTiles.SetTile(ap, null);
+                                board.setTiles.SetTile(position, above);
                             }
                         }
 
@@ -264,10 +268,12 @@ public class GameManager : MonoBehaviour
                 break;
             case 3:
                 if(!nonMintButton.activeSelf) {
-                    b.setTiles.ClearAllTiles();
-                    b.tilemap.ClearAllTiles();
+                    board.setTiles.ClearAllTiles();
+                    board.lastPlacedTiles.ClearAllTiles();
+                    board.tilemap.ClearAllTiles();
                     mintButton.SetActive(false);
                     nonMintButton.SetActive(true);
+                    am.Play(3, 1f);
                     for(int i = 0; i < flavoredCellsCovered.Length; i++) {
                         flavoredCellsCovered[i] = 0;
                         if(desiredPercentages[i] != 0) {
@@ -317,6 +323,7 @@ public class GameManager : MonoBehaviour
         if(piecesPlaced % 4 == 0) { //use powerUpOnBoard boolean in this condition to limit powerups on board to one
             board.SpawnPowerup();
             powerUpOnBoard = true;
+            Debug.Log(powerUpOnBoard);
         }
     }
 
@@ -358,6 +365,7 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         */
+        am.Play(4, 1f);
         scoreText.text = "Final Score: " + points + "!!!";
         scorecard.SetActive(true);
         yield return new WaitForSeconds(2f);
@@ -380,7 +388,7 @@ public class GameManager : MonoBehaviour
     public void SelectCard() {
         if(!zCooling) {
             ZCool();
-            board.SpawnPiece(currentCards[currentCardPos].ingredientId);
+            board.SpawnPiece(currentCards[currentCardPos].arrayIndex);
             inPlacement = true;
         }
     }

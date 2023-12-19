@@ -10,6 +10,8 @@ public class TitleScreenManager : MonoBehaviour
     public RawImage bg;
     public Texture2D[] screens;
 
+    public bool buttonPlayable = true;
+
     public GameObject buttons;
     public int otherButtonID = -1;
     public bool onOtherButton = false;
@@ -17,13 +19,14 @@ public class TitleScreenManager : MonoBehaviour
     public int lvlSelSceneID;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        bg.texture = screens[0];
+        //bg.texture = screens[0];
         StartCoroutine(Startup());
     }
 
     IEnumerator Startup() {
+        am.source = am.gameObject.GetComponent<AudioSource>();
         am.StopBGM();
         am.Play(2, 1f);
         yield return new WaitForSeconds(0.4f);
@@ -38,9 +41,13 @@ public class TitleScreenManager : MonoBehaviour
             if(onOtherButton) {
                 switch(otherButtonID) {
                     case 0:
+                                GameObject.Find("AudioManager").GetComponent<AudioManager>().Play(5, 0.3f);
+
                         Application.Quit();
                         break;
                     case 1:
+                                GameObject.Find("AudioManager").GetComponent<AudioManager>().Play(5, 0.3f);
+
                         SceneManager.LoadScene(lvlSelSceneID);
                         break;
                 }

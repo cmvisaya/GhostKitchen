@@ -81,7 +81,7 @@ public class Piece : MonoBehaviour
         Cursor.visible = false;
         Vector3Int newPosition = Vector3Int.RoundToInt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         newPosition.z = 0;
-        //Debug.Log(newPosition);
+        Debug.Log(newPosition);
         this.position = newPosition;
     }
 

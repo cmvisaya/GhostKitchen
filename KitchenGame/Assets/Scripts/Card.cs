@@ -8,4 +8,5 @@ public class Card : MonoBehaviour
     public int ingredientId;
     public string ingredientName;
     public Texture2D image;
+    [HideInInspector] public int arrayIndex;
 }

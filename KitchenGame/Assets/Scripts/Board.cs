@@ -10,6 +10,7 @@ public class Board : MonoBehaviour
     public Tilemap boardMap { get; private set; }
     public Tilemap setTiles { get; private set; }
     public Tilemap powerUpTiles {get; private set; }
+    public Tilemap lastPlacedTiles {get; private set; }
     public Piece activePiece {get; private set; }
     public IngredientData[] ingredients;
     public IngredientData[] sugarRushIngredients;
@@ -39,6 +40,8 @@ public class Board : MonoBehaviour
         this.boardMap = GameObject.Find("Board Layer").GetComponentInChildren<Tilemap>();
         this.setTiles = GameObject.Find("Set Tiles").GetComponentInChildren<Tilemap>();
         this.powerUpTiles = GameObject.Find("Powerup Layer").GetComponentInChildren<Tilemap>();
+        this.lastPlacedTiles = GameObject.Find("Zones Tiles").GetComponentInChildren<Tilemap>();
+        lastPlacedTiles.ClearAllTiles();
         this.activePiece = GetComponentInChildren<Piece>();
         
         for (int i = 0; i < this.ingredients.Length; i++) {
@@ -113,11 +116,13 @@ public class Board : MonoBehaviour
         int cellsDown = 0;
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         Vector3Int[] newTilePositions = new Vector3Int[piece.cells.Length];
+        this.lastPlacedTiles.ClearAllTiles();
         for (int i = 0; i < piece.cells.Length; i++) {
             Vector3Int tilePosition = piece.cells[i] + piece.position;
             newTilePositions[i] = tilePosition;
             if(!gm.srFill || (gm.srFill && this.boardMap.HasTile(tilePosition) && !this.setTiles.HasTile(tilePosition))) {
                 this.setTiles.SetTile(tilePosition, piece.data.tile);
+                this.lastPlacedTiles.SetTile(tilePosition, piece.data.tile);
                 cellsDown++;
             }
             this.tilemap.SetTile(tilePosition, null);

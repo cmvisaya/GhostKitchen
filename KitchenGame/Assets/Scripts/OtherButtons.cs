@@ -10,9 +10,11 @@ public class OtherButtons : MonoBehaviour
     public int otherButtonCode;
     private GameManager gm;
     public GameObject border;
+    private AudioManager am;
 
     void Start() {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         if(border != null) {
             border.SetActive(false);
         }
@@ -26,6 +28,9 @@ public class OtherButtons : MonoBehaviour
             gm.otherButtonID = otherButtonID;
             gm.otherButtonCode = otherButtonCode;
             if(border != null) { border.SetActive(true); }
+            if(gm.buttonPlayable) {
+                gm.buttonPlayable = false;
+            }
         }
     }
 
@@ -36,5 +41,6 @@ public class OtherButtons : MonoBehaviour
         if(border != null) {
             border.SetActive(false);
         }
+        gm.buttonPlayable = true;
     }
 }

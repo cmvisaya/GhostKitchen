@@ -172,6 +172,7 @@ MonoBehaviour:
   screens:
   - {fileID: 2800000, guid: 0b5bf4a48da44cb4d9e4676d737040d1, type: 3}
   - {fileID: 2800000, guid: ef3176a04db67fb44847c474dddf6cca, type: 3}
+  buttonPlayable: 1
   buttons: {fileID: 861361533}
   otherButtonID: -1
   onOtherButton: 0
@@ -777,7 +778,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1bf73cd5abfb646458ef08e1db7472c5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -878,8 +879,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eb4db470e9dad2f4ea12dc4f6c627155, type: 3}
   - {fileID: 8300000, guid: a5ea030cfb32e0c4a831a1d70058a209, type: 3}
   - {fileID: 8300000, guid: 41a3d1a4a3a1cef4dabe4f2a5ea1c575, type: 3}
+  - {fileID: 8300000, guid: 20997b3e94f34aa41a2cec424cd8a767, type: 3}
+  - {fileID: 8300000, guid: faf20c89f55770e498e5bc3e02b6146a, type: 3}
+  - {fileID: 8300000, guid: da6c5fce94b0a0b49ad7f5373be4af03, type: 3}
+  - {fileID: 8300000, guid: f8a90264034f9cd4889c636aa25663fe, type: 3}
   bgms:
   - {fileID: 8300000, guid: 1bf73cd5abfb646458ef08e1db7472c5, type: 3}
+  source: {fileID: 1088270806}
 --- !u!4 &1088270808
 Transform:
   m_ObjectHideFlags: 0
@@ -952,7 +958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ef3176a04db67fb44847c474dddf6cca, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0b5bf4a48da44cb4d9e4676d737040d1, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

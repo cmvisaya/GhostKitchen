@@ -40,6 +40,21 @@ public static class Data
         { Ingredients.ICING, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0),  new Vector2Int(-2, -1), new Vector2Int(1, 0), new Vector2Int(2, -1),} },
 
         { Ingredients.ENCHANTED, new Vector2Int[] { new Vector2Int(-1, 1), new Vector2Int(0, 1), new Vector2Int(1, 1), new Vector2Int(-1, 0), new Vector2Int(0, 0),  new Vector2Int(1, 0), new Vector2Int(-1, -1), new Vector2Int(0, -1), new Vector2Int(1, -1)} },
+
+        { Ingredients.CREAM, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 1), new Vector2Int(-1, 0), new Vector2Int(-1, 1), new Vector2Int(-2, 1) } },
+        { Ingredients.CREAM_CHEESE, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(1, -1), new Vector2Int(2, -1) } },
+        { Ingredients.WHOLE_MILK, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 0), new Vector2Int(1, -1), new Vector2Int(-1, 0), new Vector2Int(-2, 0), new Vector2Int(-1, -1) } },
+        { Ingredients.CINNAMON, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(1, -1) } },
+        { Ingredients.CHILI_FLAKE, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 0), new Vector2Int(0, 1), new Vector2Int(-1, 1) } },
+
+        { Ingredients.SHREDDED_COCONUT, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(-1, -1), new Vector2Int(1, 0), new Vector2Int(1, 1) } },
+        { Ingredients.LIME_ZEST, new Vector2Int[] { new Vector2Int(-1, 0), new Vector2Int(-2, 1), new Vector2Int(1, 0), new Vector2Int(2, 1) } },
+
+        { Ingredients.CARAMEL, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 0), new Vector2Int(2, 1), new Vector2Int(0, 1), new Vector2Int(0, -1) } },
+        { Ingredients.SOUR_CREAM, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(0, 1), new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, -1), } },
+        { Ingredients.CRISPY_ONION, new Vector2Int[] { new Vector2Int(0, 0), new Vector2Int(1, 1), new Vector2Int(-1, 0), new Vector2Int(-2, 0), } },
+
+        { Ingredients.COCOA_BEAN, new Vector2Int[] { new Vector2Int(0, 1), new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(1, -1),  } },
     };
 
 }

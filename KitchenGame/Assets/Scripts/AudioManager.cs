@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip[] clips;
     public AudioClip[] bgms;
-    private AudioSource source;
+    public AudioSource source;
+    private bool muted = false;
 
     public static AudioManager Instance;
 
@@ -21,26 +22,40 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        source = GetComponent<AudioSource>();
+        if(source == null) {
+            source = GetComponent<AudioSource>();
+        }
     }
 
-    void Start() {
+    void Update() {
+        if(Input.GetButtonDown("Mute")) {
+            if(muted) {
+                source.volume = 1f;
+            } else {
+                source.volume = 0f;
+            }
+            muted = !muted;
+        }
     }
 
     public void Play(int id, float volume) {
+        if(source != null)
         source.PlayOneShot(clips[id], volume);
     }
 
     public void StopBGM() {
+        if(source != null)
         source.Stop();
     }
 
     public void PlayBGM(int id) {
+        if(source != null)
         source.clip = bgms[id];
         PlayBGM();
     }
 
     public void PlayBGM() {
+        if(source != null)
         source.Play();
     }
 
